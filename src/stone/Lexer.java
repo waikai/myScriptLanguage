@@ -2,7 +2,7 @@ package stone;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.Reader;
-import java.text.ParseException;
+//import java.text.ParseException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,7 +37,7 @@ public class Lexer {
 		}
 	}
 	
-	private boolean fillQueue(int i) throws ParseException {
+	private boolean fillQueue(int i) throws  ParseException {
 		while (i >= queue.size()) {
 			if (hasMore) {
 				readLine();
@@ -53,7 +53,7 @@ public class Lexer {
 			line = reader.readLine();
 		} catch (IOException e) {
 			// TODO: handle exception
-//			throw new ParseException(e);
+			throw new stone.ParseException(e);
 		}
 		if (line == null) {
 			hasMore = false;
@@ -70,7 +70,7 @@ public class Lexer {
 				addToken(lineNo, matcher);
 				pos = matcher.end();
 			}else {
-//				throw new ParseException("bad token at line"+lineNo);
+				throw new stone.ParseException("bad token at line"+lineNo);
 			}
 			
 		}
