@@ -3,7 +3,7 @@ package stone.ast;
 import java.util.Iterator;
 import java.util.List;
 
-public class ASTList {
+public class ASTList extends ASTree {
 	protected List<ASTree> children;
 	public ASTList(List<ASTree> list) {
 		// TODO Auto-generated constructor stub
@@ -34,5 +34,10 @@ public class ASTList {
 			}
 		}
 		return null;
+	}
+	@Override
+	public int numChildren() {
+		// TODO Auto-generated method stub
+		return children.size();
 	}
 }
